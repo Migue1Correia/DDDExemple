@@ -35,3 +35,5 @@ C:\Users\miguel.scorreia1\source\repos\Application\Application\obj\Debug\net8.0\
 C:\Users\miguel.scorreia1\source\repos\Application\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\miguel.scorreia1\source\repos\Application\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
 C:\Users\miguel.scorreia1\source\repos\Application\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Users\miguel.scorreia1\source\repos\Application\Application\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\miguel.scorreia1\source\repos\Application\Application\bin\Debug\net8.0\Infrastructure.pdb
