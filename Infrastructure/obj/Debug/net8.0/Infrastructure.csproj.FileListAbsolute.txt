@@ -10,3 +10,4 @@ C:\Users\miguel.scorreia1\source\repos\Application\Infrastructure\obj\Debug\net8
 C:\Users\miguel.scorreia1\source\repos\Application\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
 C:\Users\miguel.scorreia1\source\repos\Application\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Users\miguel.scorreia1\source\repos\Application\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\miguel.scorreia1\source\repos\Application\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.AssemblyReference.cache

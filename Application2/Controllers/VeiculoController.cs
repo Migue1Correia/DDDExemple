@@ -19,9 +19,8 @@ namespace Application.Controler
         [Route("CadastrarVeiculos")]
         public async Task <IActionResult> PostAsy([FromBody] VeiculoCommand command)
 
-        {
-            await _veiculosService.PostAsy(command);
-            return Ok();
+        {  
+            return Ok(await _veiculosService.PostAsy(command));
         }
 
         [HttpGet]
