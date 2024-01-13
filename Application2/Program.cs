@@ -1,4 +1,6 @@
+using Domain.Interfaces;
 using Domain.NovaPasta;
+using Infrastructure.Repository;
 using Service.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IVeiculosService,VeiculoService>();
+builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+builder.Services.AddScoped<IVeiculosService, VeiculoService>();
 
 var app = builder.Build();
 

@@ -17,10 +17,10 @@ namespace Application.Controler
         }
         [HttpPost]
         [Route("CadastrarVeiculos")]
-        public async Task <IActionResult> PostAsy([FromBody] VeiculoCommand command)
+        public async Task <IActionResult> PostAsync([FromBody] VeiculoCommand command)
 
         {  
-            return Ok(await _veiculosService.PostAsy(command));
+            return Ok(await _veiculosService.PostAsync(command));
         }
 
         [HttpGet]
@@ -34,6 +34,20 @@ namespace Application.Controler
         public IActionResult PostAsync()
         {
             return Ok();
+        }
+        [HttpGet]
+        [Route("VeiculosAlugado")]
+
+        public async Task<ActionResult> GetVeiculosAlugadosAsynk()
+        {
+            return Ok(await _veiculosService.GetVeiculoAlugadosAsync());
+        }
+        [HttpGet]
+        [Route("VeiculosDisponiveis")]
+
+        public async Task<ActionResult> GetVeiculosDisponiveisAsynk()
+        {
+            return Ok(await _veiculosService.GetVeiculosDisponiveisAsynk());
         }
     }
 }

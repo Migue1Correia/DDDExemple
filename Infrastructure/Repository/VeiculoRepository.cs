@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Domain.Commands;
 using Domain.Entidades;
 using Domain.Enums;
 using Domain.Interfaces;
@@ -13,13 +14,18 @@ namespace Infrastructure.Repository
 {
     public class VeiculoRepository : IVeiculoRepository
     {
-        private string stringconnectin = "";
-        public async Task<string> PostAsync(Veiculo command) 
-        {
-            string queryInsert = @"insert into Veiculo(Placa,AnoFabricado,ETipoVeiculo,Estado,EMontadora)\r\nValues (@Placa,@AnoFabricado, @ETipoVeiculo,@Estado, @EMontadora)"
-
-            using (var conn = new SqlConnection()) 
+      
+            string conexao = @"insert into Veiculo(Placa,AnoFabricado,E )\r\nValues (@Placa,@AnoFabricado, @ETipoVeiculo,@Estado, @EMontadora)";
+            public async Task<string> PostAsync(VeiculoCommand command)
             {
+
+            string queryInsert = @" 
+                Insert Into Veiculo(Placa,AnoFabricado,ETipoVeiculo,Estado,EMontadora)
+                Volues (@Placa,@AnoFabricado, @ETipoVeiculo,@Estado, @EMontadora)";
+            using (SqlConnection conn = new SqlConnection(conexao))
+            {
+
+
                 conn.Execute(queryInsert, new
                 {
                     Placa = command.Placa,
@@ -42,5 +48,25 @@ namespace Infrastructure.Repository
         {
         
         }
+
+        public async Task<IEnumerable<VeiculoCommand>> GetVeiculosDisponiveis()
+        {
+            string queryBuscarVeiculosDisponiveis = @"SELECT * FROM Veiculo WHARE Alugado = 0";
+            using (SqlConnection conn = new SqlConnection(conexao))
+            {
+                return conn.QueryAsync<VeiculoCommand>(queryBuscarVeiculosDisponiveis).Result.ToList();
+            }
+        }
+
+            public async Task<IEnumerable<VeiculoCommand>> GetVeiculosAlugados()
+        { 
+            string queryBuscarVeiculosAlugados = @"SELECT * FROM Veiculo WHARE Alugado = 1";
+            using (SqlConnection conn = new SqlConnection(conexao)) 
+            {
+                return conn.QueryAsync<VeiculoCommand>(queryBuscarVeiculosAlugados).Result.ToList();
+            }
+
+        }
+
     }
 }
